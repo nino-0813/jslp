@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { works, getWork } from "@/lib/works-data"
+import { Reveal } from "@/components/reveal"
 
 export function generateStaticParams() {
   return works.map((work) => ({ slug: work.slug }))
@@ -53,43 +54,52 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
 
       {/* Content */}
       <main className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 max-w-3xl">
-        <p className="text-white/90 text-base sm:text-lg leading-loose sm:leading-loose mb-12 sm:mb-16">
-          {work.lead}
-        </p>
+        <Reveal>
+          <p className="text-white/90 text-base sm:text-lg leading-loose sm:leading-loose mb-12 sm:mb-16">
+            {work.lead}
+          </p>
+        </Reveal>
 
-        <div className="space-y-10 sm:space-y-14">
-          {work.sections.map((section) => (
-            <section key={section.heading}>
+        {/* Journey timeline through the story */}
+        <div className="relative space-y-10 sm:space-y-14 pl-6 sm:pl-8">
+          <div className="absolute left-[3px] sm:left-[4px] top-2 bottom-2 border-l border-dashed border-white/20" />
+          {work.sections.map((section, i) => (
+            <Reveal key={section.heading} delay={i * 150} as="section" className="relative">
+              <span className="absolute -left-6 sm:-left-8 top-[7px] w-[7px] h-[7px] rounded-full bg-white/50" />
               <h2 className="text-white font-mono text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 pb-3 border-b border-white/10">
                 {section.heading}
               </h2>
               <p className="text-white/70 text-sm sm:text-base leading-loose">{section.body}</p>
-            </section>
+            </Reveal>
           ))}
         </div>
 
-        <blockquote className="mt-12 sm:mt-16 border-l-2 border-white/20 pl-4 sm:pl-6 py-2">
-          <p className="text-white/80 font-mono text-sm sm:text-base italic leading-relaxed">
-            {work.closingQuote}
-          </p>
-        </blockquote>
+        <Reveal delay={work.sections.length * 150}>
+          <blockquote className="mt-12 sm:mt-16 border-l-2 border-white/20 pl-4 sm:pl-6 py-2">
+            <p className="text-white/80 font-mono text-sm sm:text-base italic leading-relaxed">
+              {work.closingQuote}
+            </p>
+          </blockquote>
+        </Reveal>
       </main>
 
       {/* Next project */}
-      <Link
-        href={`/works/${next.slug}`}
-        className="group block border-t border-white/10 hover:bg-white/5 transition-colors"
-      >
-        <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-14 flex items-center justify-between">
-          <div>
-            <p className="text-white/50 font-mono text-xs tracking-[0.25em] uppercase mb-2">次のストーリー</p>
-            <p className="text-white font-mono text-lg sm:text-2xl tracking-widest uppercase">{next.title}</p>
+      <Reveal as="section">
+        <Link
+          href={`/works/${next.slug}`}
+          className="group block border-t border-white/10 hover:bg-white/5 transition-colors"
+        >
+          <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-14 flex items-center justify-between">
+            <div>
+              <p className="text-white/50 font-mono text-xs tracking-[0.25em] uppercase mb-2">次のストーリー</p>
+              <p className="text-white font-mono text-lg sm:text-2xl tracking-widest uppercase">{next.title}</p>
+            </div>
+            <span className="text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all text-2xl">
+              →
+            </span>
           </div>
-          <span className="text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all text-2xl">
-            →
-          </span>
-        </div>
-      </Link>
+        </Link>
+      </Reveal>
     </div>
   )
 }

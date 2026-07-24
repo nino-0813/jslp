@@ -133,3 +133,17 @@
     -webkit-backface-visibility: hidden;
   }
 }
+
+@keyframes bounce-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1.4s ease-in-out infinite;
+}

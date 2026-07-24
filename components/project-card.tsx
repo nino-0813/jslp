@@ -19,8 +19,8 @@ export function ProjectCard({ work, isHovered, onHoverChange, isMobile }: Projec
         "group relative rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden w-full block",
         isMobile ? "cursor-pointer" : "cursor-none",
         "transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
-        "h-[320px] sm:h-[420px] md:h-[600px] md:min-w-[180px]",
-        isHovered ? "md:flex-[2] shadow-2xl shadow-white/10" : "md:flex-[0.8] opacity-90",
+        "h-[320px] sm:h-[420px] md:h-[600px]",
+        isHovered ? "shadow-2xl shadow-white/10" : "opacity-90",
       )}
       onMouseEnter={() => !isMobile && onHoverChange(true)}
       onMouseLeave={() => !isMobile && onHoverChange(false)}
