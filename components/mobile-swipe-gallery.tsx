@@ -7,7 +7,7 @@ import { AntarcticaGlobe } from "./antarctica-globe"
 import { Reveal } from "./reveal"
 import { whyAntarcticaSections, whyAntarcticaClosing, authorBio } from "@/lib/why-antarctica"
 
-const SLIDE_COUNT = 3
+const SLIDE_COUNT = 4
 
 export function MobileSwipeGallery() {
   const scrollerRef = useRef<HTMLDivElement>(null)
@@ -89,21 +89,56 @@ export function MobileSwipeGallery() {
               </p>
             </Reveal>
 
-            <Reveal delay={400}>
-              <div className="mt-14 rounded-2xl bg-white/5 border border-white/10 p-6">
-                <p className="text-white font-mono text-sm tracking-widest mb-3">{authorBio.name}</p>
-                <p className="text-white/60 text-xs leading-loose whitespace-pre-line">{authorBio.body}</p>
-              </div>
-            </Reveal>
-
             <div className="mt-16 flex flex-col items-center gap-2 text-white/40">
-              <span className="font-mono text-[10px] tracking-[0.35em] uppercase">Next: Support</span>
+              <span className="font-mono text-[10px] tracking-[0.35em] uppercase">Next: About</span>
               <span className="animate-bounce-x text-lg leading-none">→</span>
             </div>
           </div>
         </section>
 
-        {/* Slide 3 — Support: join the voyage */}
+        {/* Slide 3 — About: self-introduction */}
+        <section className="relative h-[100dvh] w-screen shrink-0 snap-center overflow-y-auto overflow-x-hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="min-h-full flex flex-col justify-center px-6 py-24">
+            <Reveal>
+              <div className="flex items-center gap-2 mb-8">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <span key={i} className="flex items-center">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
+                    {i < 2 && <span className="w-6 mx-1 border-t border-dashed border-white/25" />}
+                  </span>
+                ))}
+              </div>
+              <p className="text-white/50 font-mono text-xs tracking-[0.3em] uppercase mb-4">ABOUT</p>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div className="w-20 h-20 rounded-full border border-white/20 flex items-center justify-center mb-8">
+                <span className="w-2.5 h-2.5 rounded-full bg-white/60" />
+              </div>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <h1 className="text-white font-mono text-2xl tracking-widest leading-relaxed mb-2 [text-wrap:balance]">
+                {authorBio.name}
+              </h1>
+            </Reveal>
+
+            <Reveal delay={250}>
+              <p className="text-white/75 text-sm leading-loose whitespace-pre-line mt-8 max-w-md">
+                {authorBio.body}
+              </p>
+            </Reveal>
+
+            <Reveal delay={400}>
+              <div className="mt-16 flex flex-col items-center gap-2 text-white/40">
+                <span className="font-mono text-[10px] tracking-[0.35em] uppercase">Next: Support</span>
+                <span className="animate-bounce-x text-lg leading-none">→</span>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Slide 4 — Support: join the voyage */}
         <section className="relative h-[100dvh] w-screen shrink-0 snap-center flex flex-col items-center justify-center overflow-hidden px-8">
           <div
             className="absolute inset-0"
@@ -114,10 +149,10 @@ export function MobileSwipeGallery() {
 
           <div className="relative z-10 flex flex-col items-center text-center max-w-xs">
             <div className="flex items-center gap-2 mb-8">
-              {Array.from({ length: 3 }).map((_, i) => (
+              {Array.from({ length: SLIDE_COUNT }).map((_, i) => (
                 <span key={i} className="flex items-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
-                  {i < 2 && <span className="w-6 mx-1 border-t border-dashed border-white/25" />}
+                  {i < SLIDE_COUNT - 1 && <span className="w-6 mx-1 border-t border-dashed border-white/25" />}
                 </span>
               ))}
             </div>
