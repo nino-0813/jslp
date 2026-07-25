@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { works } from "@/lib/works-data"
 import { AntarcticaGlobe } from "./antarctica-globe"
 
-const SLIDE_COUNT = works.length + 1
+const SLIDE_COUNT = works.length + 2
 
 export function MobileSwipeGallery() {
   const scrollerRef = useRef<HTMLDivElement>(null)
@@ -77,6 +77,51 @@ export function MobileSwipeGallery() {
             </div>
           </Link>
         ))}
+
+        {/* Final slide — join the voyage */}
+        <section className="relative h-[100dvh] w-screen shrink-0 snap-center flex flex-col items-center justify-center overflow-hidden px-8">
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 30%, rgba(255,255,255,0.08), transparent 60%), #000",
+            }}
+          />
+
+          <div className="relative z-10 flex flex-col items-center text-center max-w-xs">
+            <div className="flex items-center gap-2 mb-8">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <span key={i} className="flex items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
+                  {i < 2 && <span className="w-6 mx-1 border-t border-dashed border-white/25" />}
+                </span>
+              ))}
+            </div>
+
+            <p className="text-white/60 font-mono text-xs tracking-[0.3em] uppercase mb-4">JOIN THE VOYAGE</p>
+            <h2 className="text-white font-mono text-2xl tracking-widest uppercase leading-relaxed mb-6 [text-wrap:balance]">
+              この航海に、
+              <br />
+              あなたも乗り込みませんか
+            </h2>
+            <p className="text-white/70 text-sm leading-loose mb-10">
+              クレファンは、一人の女性の衝動から始まった小さな航海です。10万円の種から始まり、共感してくれる一人ひとりとの繋がりで大きくなっていきます。あなたも支援者として、この物語に加わってください。
+            </p>
+
+            <Link
+              href="#"
+              className="w-full py-4 rounded-full bg-white text-black font-mono text-xs tracking-[0.25em] uppercase font-medium hover:bg-white/90 transition-colors"
+            >
+              クレファンを支援する
+            </Link>
+            <Link
+              href="#"
+              className="mt-4 text-white/50 hover:text-white/80 transition-colors font-mono text-xs tracking-[0.25em] uppercase"
+            >
+              問い合わせる
+            </Link>
+          </div>
+        </section>
       </div>
 
       {/* Dot progress indicator */}
