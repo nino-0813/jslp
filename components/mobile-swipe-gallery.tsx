@@ -60,38 +60,51 @@ export function MobileSwipeGallery() {
 
         {/* Slide 2 — Why Antarctica: the full story (internally scrolls vertically) */}
         <section className="relative h-[100dvh] w-screen shrink-0 snap-center overflow-y-auto overflow-x-hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="min-h-full px-6 pt-24 pb-20">
-            <Reveal>
-              <p className="text-white/50 font-mono text-xs tracking-[0.3em] uppercase mb-3">WHY ANTARCTICA</p>
-              <h1 className="text-white font-mono text-2xl tracking-widest leading-relaxed mb-14 [text-wrap:balance]">
-                なぜ、南極を
-                <br />
-                目指すのか
-              </h1>
-            </Reveal>
-
-            <div className="relative space-y-14 pl-5">
-              <div className="absolute left-[3px] top-2 bottom-2 border-l border-dashed border-white/15" />
-              {whyAntarcticaSections.map((section, i) => (
-                <Reveal key={section.heading} delay={Math.min(i * 60, 300)} as="section" className="relative">
-                  <span className="absolute -left-5 top-[6px] w-[6px] h-[6px] rounded-full bg-white/40" />
-                  <h2 className="text-white font-mono text-xs tracking-[0.2em] uppercase mb-4 pb-3 border-b border-white/10">
-                    {section.heading}
-                  </h2>
-                  <p className="text-white/75 text-[15px] leading-[2] whitespace-pre-line">{section.body}</p>
+          <div className="min-h-full pb-20">
+            <div className="relative h-[42vh] w-full">
+              <img
+                src="/jasmine-hokkaido.jpg"
+                alt="澤口真里佳"
+                className="absolute inset-0 w-full h-full object-cover grayscale"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 px-6 pb-8">
+                <Reveal>
+                  <p className="text-white/70 font-mono text-xs tracking-[0.3em] uppercase mb-3">WHY ANTARCTICA</p>
+                  <h1 className="text-white font-mono text-2xl tracking-widest leading-relaxed [text-wrap:balance]">
+                    なぜ、南極を
+                    <br />
+                    目指すのか
+                  </h1>
                 </Reveal>
-              ))}
+              </div>
             </div>
 
-            <Reveal delay={300}>
-              <p className="text-white/85 font-mono text-sm leading-loose whitespace-pre-line mt-16 pt-10 border-t border-white/10">
-                {whyAntarcticaClosing}
-              </p>
-            </Reveal>
+            <div className="px-6 pt-14">
+              <div className="relative space-y-14 pl-5">
+                <div className="absolute left-[3px] top-2 bottom-2 border-l border-dashed border-white/15" />
+                {whyAntarcticaSections.map((section, i) => (
+                  <Reveal key={section.heading} delay={Math.min(i * 60, 300)} as="section" className="relative">
+                    <span className="absolute -left-5 top-[6px] w-[6px] h-[6px] rounded-full bg-white/40" />
+                    <h2 className="text-white font-mono text-xs tracking-[0.2em] uppercase mb-4 pb-3 border-b border-white/10">
+                      {section.heading}
+                    </h2>
+                    <p className="text-white/75 text-[15px] leading-[2] whitespace-pre-line">{section.body}</p>
+                  </Reveal>
+                ))}
+              </div>
 
-            <div className="mt-16 flex flex-col items-center gap-2 text-white/40">
-              <span className="font-mono text-[10px] tracking-[0.35em] uppercase">Next: About</span>
-              <span className="animate-bounce-x text-lg leading-none">→</span>
+              <Reveal delay={300}>
+                <p className="text-white/85 font-mono text-sm leading-loose whitespace-pre-line mt-16 pt-10 border-t border-white/10">
+                  {whyAntarcticaClosing}
+                </p>
+              </Reveal>
+
+              <div className="mt-16 flex flex-col items-center gap-2 text-white/40">
+                <span className="font-mono text-[10px] tracking-[0.35em] uppercase">Next: About</span>
+                <span className="animate-bounce-x text-lg leading-none">→</span>
+              </div>
             </div>
           </div>
         </section>
@@ -112,8 +125,12 @@ export function MobileSwipeGallery() {
             </Reveal>
 
             <Reveal delay={100}>
-              <div className="w-20 h-20 rounded-full border border-white/20 flex items-center justify-center mb-8">
-                <span className="w-2.5 h-2.5 rounded-full bg-white/60" />
+              <div className="w-full max-w-sm h-72 rounded-2xl overflow-hidden border border-white/10 mb-8">
+                <img
+                  src="/jasmine-shibuya.jpg"
+                  alt={authorBio.name}
+                  className="w-full h-full object-cover grayscale"
+                />
               </div>
             </Reveal>
 

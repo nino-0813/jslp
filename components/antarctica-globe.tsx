@@ -14,10 +14,8 @@ const ANTARCTICA_POINT = [
   },
 ]
 
-const START_VIEW = { lat: -70, lng: 20, altitude: 4.2 }
 const FINAL_VIEW = { lat: -70, lng: 20, altitude: 1.9 }
-const REVEAL_ZOOM_MS = 3800
-const REVEAL_FADE_MS = 2400
+const REVEAL_FADE_MS = 5000
 
 interface AntarcticaGlobeProps {
   width: number
@@ -33,7 +31,7 @@ export function AntarcticaGlobe({ width, height }: AntarcticaGlobeProps) {
     const globe = globeRef.current
     if (!globe || !ready) return
 
-    globe.pointOfView(START_VIEW, 0)
+    globe.pointOfView(FINAL_VIEW, 0)
 
     const controls = globe.controls() as unknown as {
       enableZoom: boolean
@@ -43,22 +41,12 @@ export function AntarcticaGlobe({ width, height }: AntarcticaGlobeProps) {
     }
     controls.enableZoom = false
     controls.enablePan = false
-    controls.autoRotate = false
+    controls.autoRotate = true
+    controls.autoRotateSpeed = 0.6
 
-    const revealFrame = requestAnimationFrame(() => {
-      setVisible(true)
-      globe.pointOfView(FINAL_VIEW, REVEAL_ZOOM_MS)
-    })
+    const revealFrame = requestAnimationFrame(() => setVisible(true))
 
-    const autoRotateTimer = setTimeout(() => {
-      controls.autoRotate = true
-      controls.autoRotateSpeed = 0.6
-    }, REVEAL_ZOOM_MS)
-
-    return () => {
-      cancelAnimationFrame(revealFrame)
-      clearTimeout(autoRotateTimer)
-    }
+    return () => cancelAnimationFrame(revealFrame)
   }, [ready])
 
   if (width === 0 || height === 0) return null
