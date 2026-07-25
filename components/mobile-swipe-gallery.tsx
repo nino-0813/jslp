@@ -5,7 +5,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { AntarcticaGlobe } from "./antarctica-globe"
 import { Reveal } from "./reveal"
-import { whyAntarcticaSections, whyAntarcticaClosing, authorBio } from "@/lib/why-antarctica"
+import { whyAntarcticaSections, authorBio, aboutSections } from "@/lib/why-antarctica"
 
 const SLIDE_COUNT = 4
 
@@ -61,7 +61,7 @@ export function MobileSwipeGallery() {
         {/* Slide 2 — Why Antarctica: the full story (internally scrolls vertically) */}
         <section className="relative h-[100dvh] w-screen shrink-0 snap-center overflow-y-auto overflow-x-hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div className="min-h-full pb-20">
-            <div className="relative h-[42vh] w-full">
+            <div className="relative h-[92vh] w-full">
               <img
                 src="/jasmine-hokkaido.jpg"
                 alt="澤口真里佳"
@@ -95,12 +95,6 @@ export function MobileSwipeGallery() {
                 ))}
               </div>
 
-              <Reveal delay={300}>
-                <p className="text-white/85 font-mono text-sm leading-loose whitespace-pre-line mt-16 pt-10 border-t border-white/10">
-                  {whyAntarcticaClosing}
-                </p>
-              </Reveal>
-
               <div className="mt-16 flex flex-col items-center gap-2 text-white/40">
                 <span className="font-mono text-[10px] tracking-[0.35em] uppercase">Next: About</span>
                 <span className="animate-bounce-x text-lg leading-none">→</span>
@@ -111,47 +105,56 @@ export function MobileSwipeGallery() {
 
         {/* Slide 3 — About: self-introduction */}
         <section className="relative h-[100dvh] w-screen shrink-0 snap-center overflow-y-auto overflow-x-hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="min-h-full flex flex-col justify-center px-6 py-24">
-            <Reveal>
-              <div className="flex items-center gap-2 mb-8">
-                {Array.from({ length: 3 }).map((_, i) => (
-                  <span key={i} className="flex items-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
-                    {i < 2 && <span className="w-6 mx-1 border-t border-dashed border-white/25" />}
-                  </span>
+          <div className="min-h-full pb-20">
+            <div className="relative h-[92vh] w-full">
+              <img
+                src="/jasmine-shibuya.jpg"
+                alt={authorBio.name}
+                className="absolute inset-0 w-full h-full object-cover grayscale"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 px-6 pb-8">
+                <Reveal>
+                  <div className="flex items-center gap-2 mb-6">
+                    {Array.from({ length: 3 }).map((_, i) => (
+                      <span key={i} className="flex items-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
+                        {i < 2 && <span className="w-6 mx-1 border-t border-dashed border-white/25" />}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-white/70 font-mono text-xs tracking-[0.3em] uppercase mb-3">ABOUT</p>
+                  <h1 className="text-white font-mono text-2xl tracking-widest leading-relaxed [text-wrap:balance]">
+                    {authorBio.name}
+                  </h1>
+                </Reveal>
+              </div>
+            </div>
+
+            <div className="px-6 pt-14">
+              <Reveal delay={100}>
+                <p className="text-white/75 text-sm leading-loose whitespace-pre-line max-w-md">{authorBio.body}</p>
+              </Reveal>
+
+              <div className="relative space-y-14 pl-5 mt-16">
+                <div className="absolute left-[3px] top-2 bottom-2 border-l border-dashed border-white/15" />
+                {aboutSections.map((section, i) => (
+                  <Reveal key={section.heading} delay={Math.min(i * 60, 300)} as="section" className="relative">
+                    <span className="absolute -left-5 top-[6px] w-[6px] h-[6px] rounded-full bg-white/40" />
+                    <h2 className="text-white font-mono text-xs tracking-[0.2em] uppercase mb-4 pb-3 border-b border-white/10">
+                      {section.heading}
+                    </h2>
+                    <p className="text-white/75 text-[15px] leading-[2] whitespace-pre-line">{section.body}</p>
+                  </Reveal>
                 ))}
               </div>
-              <p className="text-white/50 font-mono text-xs tracking-[0.3em] uppercase mb-4">ABOUT</p>
-            </Reveal>
 
-            <Reveal delay={100}>
-              <div className="w-full max-w-sm h-72 rounded-2xl overflow-hidden border border-white/10 mb-8">
-                <img
-                  src="/jasmine-shibuya.jpg"
-                  alt={authorBio.name}
-                  className="w-full h-full object-cover grayscale"
-                />
-              </div>
-            </Reveal>
-
-            <Reveal delay={150}>
-              <h1 className="text-white font-mono text-2xl tracking-widest leading-relaxed mb-2 [text-wrap:balance]">
-                {authorBio.name}
-              </h1>
-            </Reveal>
-
-            <Reveal delay={250}>
-              <p className="text-white/75 text-sm leading-loose whitespace-pre-line mt-8 max-w-md">
-                {authorBio.body}
-              </p>
-            </Reveal>
-
-            <Reveal delay={400}>
               <div className="mt-16 flex flex-col items-center gap-2 text-white/40">
                 <span className="font-mono text-[10px] tracking-[0.35em] uppercase">Next: Support</span>
                 <span className="animate-bounce-x text-lg leading-none">→</span>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
 
