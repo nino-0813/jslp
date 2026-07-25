@@ -188,7 +188,9 @@ export function MobileSwipeGallery() {
             </p>
 
             <Link
-              href="#"
+              href="https://donate.stripe.com/dRm14meNs2Tu0ss0rGfrW00"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full py-4 rounded-full bg-white text-black font-mono text-xs tracking-[0.25em] uppercase font-medium hover:bg-white/90 transition-colors"
             >
               クレファンを支援する

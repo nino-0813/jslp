@@ -146,7 +146,9 @@ export function DesktopStory() {
             </p>
             <div className="flex flex-col items-center gap-4">
               <Link
-                href="#"
+                href="https://donate.stripe.com/dRm14meNs2Tu0ss0rGfrW00"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-10 py-4 rounded-full bg-white text-black font-mono text-xs tracking-[0.25em] uppercase font-medium hover:bg-white/90 transition-colors"
               >
                 クレファンを支援する
