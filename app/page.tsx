@@ -73,7 +73,7 @@ export default function Page() {
       </header>
 
       {/* Works Gallery */}
-      <main className="md:pt-32 md:pb-16">
+      <main>
         <WorksGallery />
       </main>
     </div>
