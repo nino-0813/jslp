@@ -7,25 +7,21 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+  title: 'クレファン | 一人の女性が、南極を目指す',
+  description:
+    '地域冒険家・澤口真里佳による南極渡航プロジェクト「クレファン」。大義名分ではなく、等身大の衝動から始まる航海の記録。',
+  openGraph: {
+    title: 'クレファン | 一人の女性が、南極を目指す',
+    description:
+      '地域冒険家・澤口真里佳による南極渡航プロジェクト「クレファン」。大義名分ではなく、等身大の衝動から始まる航海の記録。',
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'クレファン | 一人の女性が、南極を目指す',
+    description:
+      '地域冒険家・澤口真里佳による南極渡航プロジェクト「クレファン」。大義名分ではなく、等身大の衝動から始まる航海の記録。',
   },
 }
 
@@ -35,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
