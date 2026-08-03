@@ -196,6 +196,14 @@ export function MobileSwipeGallery() {
               クレファンを支援する
             </Link>
             <Link
+              href="https://note.com/guuzenno_sawady"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full mt-4 py-4 rounded-full border border-white/30 text-white font-mono text-xs tracking-[0.25em] uppercase font-medium hover:border-white/60 hover:bg-white/5 transition-colors"
+            >
+              noteで記事を読む
+            </Link>
+            <Link
               href="#"
               className="mt-4 text-white/50 hover:text-white/80 transition-colors font-mono text-xs tracking-[0.25em] uppercase"
             >
