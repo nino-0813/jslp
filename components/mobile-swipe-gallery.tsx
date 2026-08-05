@@ -50,7 +50,7 @@ export function MobileSwipeGallery() {
             <p className="text-white/60 font-mono text-xs tracking-[0.3em] uppercase mb-4">CREFUN PROJECT</p>
             <p className="text-white/50 font-mono text-[10px] tracking-[0.3em] uppercase mb-2">Episode 01</p>
             <h1 className="text-white font-mono text-2xl tracking-widest uppercase leading-relaxed [text-wrap:balance]">
-              一人の女性が、南極を目指す
+              南極を目指す物語
             </h1>
           </div>
           <div className="absolute bottom-12 left-0 right-0 flex flex-col items-center gap-2 text-white/50 pointer-events-none">

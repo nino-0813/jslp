@@ -51,7 +51,7 @@ export function DesktopStory() {
           <p className="text-white/60 font-mono text-xs tracking-[0.4em] uppercase mb-6">CREFUN PROJECT</p>
           <p className="text-white/50 font-mono text-xs tracking-[0.35em] uppercase mb-3">Episode 01</p>
           <h1 className="text-white font-mono text-4xl lg:text-5xl tracking-widest uppercase leading-relaxed">
-            一人の女性が、南極を目指す
+            南極を目指す物語
           </h1>
         </div>
         <div className="absolute bottom-12 left-0 right-0 flex flex-col items-center gap-2 text-white/50">
