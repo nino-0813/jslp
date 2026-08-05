@@ -7,11 +7,11 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'クレファン | 一人の女性が、南極を目指す',
+  title: 'クレファン | 南極を目指す物語',
   description:
     '地域冒険家・澤口真里佳による南極渡航プロジェクト「クレファン」。大義名分ではなく、等身大の衝動から始まる航海の記録。',
   openGraph: {
-    title: 'クレファン | 一人の女性が、南極を目指す',
+    title: 'クレファン | 南極を目指す物語',
     description:
       '地域冒険家・澤口真里佳による南極渡航プロジェクト「クレファン」。大義名分ではなく、等身大の衝動から始まる航海の記録。',
     locale: 'ja_JP',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'クレファン | 一人の女性が、南極を目指す',
+    title: 'クレファン | 南極を目指す物語',
     description:
       '地域冒険家・澤口真里佳による南極渡航プロジェクト「クレファン」。大義名分ではなく、等身大の衝動から始まる航海の記録。',
   },
