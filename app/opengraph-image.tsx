@@ -62,7 +62,7 @@ export default function OpengraphImage() {
             marginBottom: 28,
           }}
         >
-          CREFAN PROJECT
+          CREFUN PROJECT
         </div>
 
         <div

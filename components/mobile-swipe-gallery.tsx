@@ -47,7 +47,8 @@ export function MobileSwipeGallery() {
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
           <div className="relative z-10 text-center px-8 pointer-events-none">
-            <p className="text-white/60 font-mono text-xs tracking-[0.3em] uppercase mb-4">CREFAN PROJECT</p>
+            <p className="text-white/60 font-mono text-xs tracking-[0.3em] uppercase mb-4">CREFUN PROJECT</p>
+            <p className="text-white/50 font-mono text-[10px] tracking-[0.3em] uppercase mb-2">Episode 01</p>
             <h1 className="text-white font-mono text-2xl tracking-widest uppercase leading-relaxed [text-wrap:balance]">
               一人の女性が、南極を目指す
             </h1>
