@@ -143,16 +143,16 @@ export function DesktopStory() {
               あなたも乗り込みませんか
             </h2>
             <p className="text-white/70 text-base leading-loose mb-12">
-              クレファンは、一人の女性の衝動から始まった小さな航海です。10万円の種から始まり、共感してくれる一人ひとりとの繋がりで大きくなっていきます。あなたも支援者として、この物語に加わってください。
+              一人の女性の衝動から始まった小さな航海です。10万円の種から始まり、共感してくれる一人ひとりとの繋がりで大きくなっていきます。あなたも、この物語に加わってください。
             </p>
             <div className="flex flex-col items-center gap-4">
               <Link
-                href="https://donate.stripe.com/dRm14meNs2Tu0ss0rGfrW00"
+                href="https://buy.stripe.com/dRm14meNs2Tu0ss0rGfrW00"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-10 py-4 rounded-full bg-white text-black font-mono text-xs tracking-[0.25em] uppercase font-medium hover:bg-white/90 transition-colors"
               >
-                クレファンを支援する
+                JOIN THE VOYAGE
               </Link>
               <Link
                 href="https://note.com/guuzenno_sawady"
