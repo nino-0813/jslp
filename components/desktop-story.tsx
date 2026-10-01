@@ -155,12 +155,12 @@ export function DesktopStory() {
                 JOIN THE VOYAGE
               </Link>
               <Link
-                href="https://note.com/guuzenno_sawady"
+                href="https://note.com/guuzenno_sawady/n/n7bf19031d9f2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-10 py-4 rounded-full border border-white/30 text-white font-mono text-xs tracking-[0.25em] uppercase font-medium hover:border-white/60 hover:bg-white/5 transition-colors"
               >
-                noteで記事を読む
+                なぜ南極に行きたいのかnote
               </Link>
               <Link
                 href="https://jasmine-zenkoku-2026.takulabo.chatgpt.site/"
@@ -168,7 +168,7 @@ export function DesktopStory() {
                 rel="noopener noreferrer"
                 className="px-10 py-4 rounded-full border border-white/30 text-white font-mono text-xs tracking-[0.2em] font-medium hover:border-white/60 hover:bg-white/5 transition-colors"
               >
-                ジャスミン全国行脚 2026
+                2026年10月 全国行脚
               </Link>
               <Link
                 href="#"
