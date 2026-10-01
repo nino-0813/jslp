@@ -163,6 +163,14 @@ export function DesktopStory() {
                 noteで記事を読む
               </Link>
               <Link
+                href="https://jasmine-zenkoku-2026.takulabo.chatgpt.site/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-4 rounded-full border border-white/30 text-white font-mono text-xs tracking-[0.2em] font-medium hover:border-white/60 hover:bg-white/5 transition-colors"
+              >
+                ジャスミン全国行脚 2026
+              </Link>
+              <Link
                 href="#"
                 className="text-white/50 hover:text-white/80 transition-colors font-mono text-xs tracking-[0.25em] uppercase"
               >
