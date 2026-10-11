@@ -151,9 +151,9 @@ export function DesktopStory() {
                 href="https://buy.stripe.com/dRm14meNs2Tu0ss0rGfrW00"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-4 rounded-full bg-white text-black font-mono text-xs tracking-[0.25em] uppercase font-medium hover:bg-white/90 transition-colors"
+                className="px-10 py-4 rounded-full bg-white text-black font-mono text-xs tracking-[0.15em] font-medium hover:bg-white/90 transition-colors"
               >
-                JOIN THE VOYAGE
+                南極への航海を応援
               </Link>
               <Link
                 href="https://note.com/guuzenno_sawady/n/n7bf19031d9f2"

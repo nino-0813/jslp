@@ -1,5 +1,6 @@
 import { WorksGallery } from "@/components/works-gallery"
 import { FloatingVoyageCta } from "@/components/floating-voyage-cta"
+import { StoryMenu } from "@/components/story-menu"
 
 export default function Page() {
   return (
@@ -7,6 +8,7 @@ export default function Page() {
       <main>
         <WorksGallery />
       </main>
+      <StoryMenu />
       <FloatingVoyageCta />
     </div>
   )
