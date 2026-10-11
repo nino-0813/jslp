@@ -40,6 +40,7 @@ export function DesktopStory() {
     <div className="bg-black">
       {/* Hero */}
       <section
+        id="story-hero"
         ref={heroRef}
         className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden"
       >

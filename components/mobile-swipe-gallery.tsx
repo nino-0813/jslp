@@ -41,7 +41,10 @@ export function MobileSwipeGallery() {
         className="flex h-[100dvh] w-screen overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {/* Slide 1 — Top: Antarctica globe */}
-        <section className="relative h-[100dvh] w-screen shrink-0 snap-center flex flex-col items-center justify-center overflow-hidden">
+        <section
+          id="story-hero"
+          className="relative h-[100dvh] w-screen shrink-0 snap-center flex flex-col items-center justify-center overflow-hidden"
+        >
           <div className="absolute inset-0 flex items-center justify-center">
             <AntarcticaGlobe width={size.width} height={size.height} />
           </div>

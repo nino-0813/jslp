@@ -4,12 +4,29 @@ import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { AntarcticaGlobe } from "./antarctica-globe"
+import { useIsMobile } from "@/hooks/use-mobile"
+import { cn } from "@/lib/utils"
 
 const STRIPE_PAYMENT_URL = "https://buy.stripe.com/dRm14meNs2Tu0ss0rGfrW00"
 
 export function FloatingVoyageCta() {
   const globeContainerRef = useRef<HTMLSpanElement>(null)
   const [globeSize, setGlobeSize] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const isMobile = useIsMobile()
+
+  useEffect(() => {
+    const hero = document.getElementById("story-hero")
+    if (!hero) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(!entry.isIntersecting),
+      { threshold: 0.01 },
+    )
+    observer.observe(hero)
+
+    return () => observer.disconnect()
+  }, [isMobile])
 
   useEffect(() => {
     const element = globeContainerRef.current
@@ -30,7 +47,12 @@ export function FloatingVoyageCta() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="南極への航海を応援する（Stripeの支払いページを開く）"
-      className="group fixed bottom-[max(3.5rem,calc(env(safe-area-inset-bottom)+1rem))] right-[max(1rem,env(safe-area-inset-right))] z-50 flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-white/20 bg-black/70 p-1.5 pr-3 shadow-[0_12px_40px_rgba(0,0,0,0.55),0_0_24px_rgba(255,255,255,0.08)] backdrop-blur-xl transition-[border-color,background-color,transform,box-shadow] duration-300 ease-out hover:border-white/40 hover:bg-black/85 hover:shadow-[0_16px_48px_rgba(0,0,0,0.65),0_0_30px_rgba(255,255,255,0.12)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black motion-reduce:transition-none md:bottom-6 md:right-6 md:gap-3 md:p-2 md:pr-4"
+      aria-hidden={!isVisible}
+      tabIndex={isVisible ? undefined : -1}
+      className={cn(
+        "group fixed bottom-[max(3.5rem,calc(env(safe-area-inset-bottom)+1rem))] right-[max(1rem,env(safe-area-inset-right))] z-50 flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-white/20 bg-black/70 p-1.5 pr-3 shadow-[0_12px_40px_rgba(0,0,0,0.55),0_0_24px_rgba(255,255,255,0.08)] backdrop-blur-xl transition-[opacity,border-color,background-color,transform,box-shadow] duration-300 ease-out hover:border-white/40 hover:bg-black/85 hover:shadow-[0_16px_48px_rgba(0,0,0,0.65),0_0_30px_rgba(255,255,255,0.12)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black motion-reduce:transition-none md:bottom-6 md:right-6 md:gap-3 md:p-2 md:pr-4",
+        isVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0",
+      )}
     >
       <span
         ref={globeContainerRef}
