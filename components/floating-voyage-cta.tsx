@@ -1,14 +1,17 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { ArrowUpRight, Ship } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import { AntarcticaGlobe } from "./antarctica-globe"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
 
 const STRIPE_PAYMENT_URL = "https://buy.stripe.com/dRm14meNs2Tu0ss0rGfrW00"
 
 export function FloatingVoyageCta() {
+  const globeContainerRef = useRef<HTMLSpanElement>(null)
+  const [globeSize, setGlobeSize] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const isMobile = useIsMobile()
 
@@ -25,6 +28,19 @@ export function FloatingVoyageCta() {
     return () => observer.disconnect()
   }, [isMobile])
 
+  useEffect(() => {
+    const element = globeContainerRef.current
+    if (!element) return
+
+    const updateSize = () => setGlobeSize(element.clientWidth)
+    updateSize()
+
+    const observer = new ResizeObserver(updateSize)
+    observer.observe(element)
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <Link
       href={STRIPE_PAYMENT_URL}
@@ -39,15 +55,14 @@ export function FloatingVoyageCta() {
       )}
     >
       <span
+        ref={globeContainerRef}
         aria-hidden="true"
-        className="relative flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-[radial-gradient(circle_at_35%_25%,rgba(255,255,255,0.12),transparent_35%),linear-gradient(160deg,#16191d_0%,#050607_70%)] shadow-[inset_0_0_18px_rgba(255,255,255,0.04),0_0_20px_rgba(255,255,255,0.12)] transition-transform duration-300 ease-out group-hover:scale-[1.04] motion-reduce:transition-none md:size-16"
+        className="relative block size-14 shrink-0 overflow-hidden rounded-full border border-white/20 bg-black shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-transform duration-300 ease-out group-hover:scale-[1.04] motion-reduce:transition-none md:size-16"
       >
-        <span className="absolute right-2 top-2 size-0.5 rounded-full bg-white/70 shadow-[8px_4px_0_rgba(255,255,255,0.35)] md:right-2.5 md:top-2.5" />
-        <Ship
-          className="relative z-10 size-7 text-white/85 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 motion-reduce:transition-none md:size-8"
-          strokeWidth={1.35}
-        />
-        <span className="pointer-events-none absolute inset-x-2 bottom-2 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent md:bottom-2.5" />
+        <span className="absolute inset-0 flex items-center justify-center">
+          <AntarcticaGlobe width={globeSize} height={globeSize} revealFadeMs={700} />
+        </span>
+        <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-white/10 via-transparent to-black/20" />
       </span>
       <span className="min-w-0 text-left font-mono">
         <span className="block text-[8px] tracking-[0.2em] text-white/45 transition-colors duration-300 group-hover:text-white/65 md:text-[9px]">
