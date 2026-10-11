@@ -20,9 +20,10 @@ const REVEAL_FADE_MS = 5000
 interface AntarcticaGlobeProps {
   width: number
   height: number
+  revealFadeMs?: number
 }
 
-export function AntarcticaGlobe({ width, height }: AntarcticaGlobeProps) {
+export function AntarcticaGlobe({ width, height, revealFadeMs = REVEAL_FADE_MS }: AntarcticaGlobeProps) {
   const globeRef = useRef<GlobeMethods | undefined>(undefined)
   const [ready, setReady] = useState(false)
   const [visible, setVisible] = useState(false)
@@ -53,8 +54,8 @@ export function AntarcticaGlobe({ width, height }: AntarcticaGlobeProps) {
 
   return (
     <div
-      className="pointer-events-none transition-opacity ease-out"
-      style={{ opacity: visible ? 1 : 0, transitionDuration: `${REVEAL_FADE_MS}ms` }}
+      className="pointer-events-none transition-opacity ease-out motion-reduce:transition-none"
+      style={{ opacity: visible ? 1 : 0, transitionDuration: `${revealFadeMs}ms` }}
     >
       <Globe
         ref={globeRef as never}
