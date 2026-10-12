@@ -7,7 +7,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react"
 
 const MENU_ITEMS = [
   {
-    label: "南極への航海を応援",
+    label: "南極渡航プロジェクトに参加する",
     eyebrow: "SUPPORT THE VOYAGE",
     href: "https://buy.stripe.com/dRm14meNs2Tu0ss0rGfrW00",
   },

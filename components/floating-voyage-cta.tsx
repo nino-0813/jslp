@@ -46,7 +46,7 @@ export function FloatingVoyageCta() {
       href={STRIPE_PAYMENT_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="南極への航海を応援する（Stripeの支払いページを開く）"
+      aria-label="南極渡航プロジェクトに参加する（Stripeの支払いページを開く）"
       aria-hidden={!isVisible}
       tabIndex={isVisible ? undefined : -1}
       className={cn(
@@ -69,7 +69,7 @@ export function FloatingVoyageCta() {
           SUPPORT THE VOYAGE
         </span>
         <span className="mt-0.5 block whitespace-nowrap text-[11px] tracking-[0.08em] text-white/90 md:text-xs">
-          南極への航海を応援
+          南極渡航プロジェクトに参加する
         </span>
       </span>
       <ArrowUpRight
