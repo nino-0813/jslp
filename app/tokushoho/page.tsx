@@ -8,7 +8,7 @@ const rows: { label: string; value: string }[] = [
   { label: "メールアドレス", value: "am.yamashi@gmail.com" },
   {
     label: "商品の内容",
-    value: "「偶然のさわでぃー南極シール」",
+    value: "「偶然のさわでぃー南極タオル」",
   },
   { label: "販売価格", value: "5,000円(税込)" },
   { label: "商品代金以外の必要料金", value: "送料無料。決済手数料等の追加負担もありません(Stripeの決済手数料は当方が負担します)" },
@@ -16,7 +16,7 @@ const rows: { label: string; value: string }[] = [
   { label: "支払時期", value: "お申し込み(決済)時に即時決済されます" },
   {
     label: "商品の引渡時期",
-    value: "決済完了後、2026年10月31日までに発送いたします。",
+    value: "決済完了後、2026年11月30日までに発送いたします。",
   },
   {
     label: "返品・キャンセルについて",
